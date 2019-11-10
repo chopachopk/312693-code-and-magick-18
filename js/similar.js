@@ -28,7 +28,7 @@
   };
 
   var updateWizards = function () {
-    window.render(wizards.sort(function (left, right) {
+    window.render(wizards.slice().sort(function (left, right) {
       var rankDiff = getRank(right) - getRank(left);
       if (rankDiff === 0) {
         rankDiff = namesComparator(left.name, right.name);
@@ -37,15 +37,15 @@
     }));
   };
 
-  window.wizard.onEyesChange = function (color) {
+  window.wizard.onEyesChange = window.debounce(function (color) {
     eyesColor = color;
     updateWizards();
-  };
+  });
 
-  window.wizard.onCoatChange = function (color) {
+  window.wizard.onCoatChange = window.debounce(function (color) {
     coatColor = color;
     updateWizards();
-  };
+  });
 
   var successHandler = function (data) {
     wizards = data;
