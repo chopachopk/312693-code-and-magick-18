@@ -1,5 +1,4 @@
 'use strict';
-
 (function () {
   var SAVE_URL = 'https://js.dump.academy/code-and-magick';
   var LOAD_URL = 'https://js.dump.academy/code-and-magick/data';
